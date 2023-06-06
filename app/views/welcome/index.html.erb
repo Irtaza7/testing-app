@@ -1,0 +1,17 @@
+<div style="margin: 0.5em;">
+	<%= form_with url: import_welcome_index_path, method: :post do |f| %>
+		<%= f.file_field :file %>
+		<%= f.button :import %>
+	<% end %>
+
+	<h1>
+	Comments:
+		<%= @comments.count %>
+	</h1>
+	<div>
+		<%= @comments.each do |comment|%>
+			<%= render partial: 'content', locals: { comment: comment } %>
+		<%end%>
+	<div>
+</div>
+

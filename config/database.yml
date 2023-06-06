@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 15
+  host: localhost
+  username: izzu
+  password: izzu123
+  port: 5432
+
+development:
+  <<: *default
+  database: testing-project_database
+
+production:
+  <<: *default
+
+  database: testing-project_database
+
+test:
+  <<: *default
+  database: testing-project_database_test
