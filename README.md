@@ -1,0 +1,35 @@
+# README
+<%= form_with(url: article_comments_path(article), method: :post) do |form| %>
+  <div>
+    <%= form.text_area :content, rows: 6, cols: 20 %>
+
+    <%= form.label :image, "Image:" %>
+    <%= form.file_field :image, id: "comment_image" %>
+  </div>
+
+  <%= form.submit "Submit" %>
+<% end %>
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+# testing-app
