@@ -1,5 +1,0 @@
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Owner: </strong><%= @article.user.email %></p>
-<p><strong>Comment: </strong><%= render partial: 'comments/comment', collection: @article.comments %></p>
-PDF Generation Date:
-<%= Time.zone.now %>

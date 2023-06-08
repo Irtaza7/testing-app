@@ -1,9 +1,0 @@
-
-<%= form_with(model: [ Rating.new], url: article_ratings_path(article)) do |f| %>
-  <div class="rating">
-    <%= f.label :value, 'Rating' %>
-    <%= f.select :value, options_for_select([1, 2, 3, 4, 5]) %>
-  </div>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit 'Submit' %>
-<% end %>

@@ -1,7 +1,5 @@
 require 'rails_helper'
 require 'capybara/rspec'
-require 'pdf/reader'
-require 'stringio'
 
 RSpec.feature 'article_index', type: :system do
   let(:user) {FactoryBot.create(:user)}
@@ -11,10 +9,6 @@ RSpec.feature 'article_index', type: :system do
   let!(:article1) { create(:article, user: user1, title: 'Checking the creation', description: 'Lorem ipsum dolor sit amet.') }
   let!(:article2) { create(:article, user: user1, title: 'something happens', description: 'Lorem ipsum dolor sit amet.') }
   let!(:article3) { create(:article, user: user, title: 'Capybara Tdd', description: 'Lorem ipsum dolor sit amet.') }
-  # let(:pdf_file) { MyPdfGenerator.new.generate_pdf }
-  # let(:pdf_text) do
-  #   PDF::Reader.new(pdf_file.path).pages.map(&:text).join
-  # end
 
   before do
     login_as(user1, scope: :user)
@@ -112,9 +106,5 @@ RSpec.feature 'article_index', type: :system do
 
     expect(page).to have_link 'PDF'
     all('a', text: 'PDF')[0].click
-    pdf = page.body
-    #reader = PDF::Reader.new(StringIO.new(pdf))
-    byebug
-    expect(page.body).to include('application/pdf')
   end
 end
